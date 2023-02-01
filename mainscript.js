@@ -26,4 +26,9 @@ function getComputerChoice(){
     return computerChoice
 }
 
-console.log(getComputerChoice())
+function playerChoice(){
+    let playerChoice = prompt('Type the desired hand: ')
+    return playerChoice
+}
+
+
