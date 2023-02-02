@@ -40,4 +40,26 @@ function oneHand() {
     else return 'Unexpected hands: ' + newPlayerHand + ' ' + computerHand
 }
 
-console.log(oneHand())
+//Play 5 rounds by calling oneHand five times and keep track of result and current round 
+function game(){
+    let rounds = 0
+    let playerWins = 0
+    let computerWins = 0
+
+    //Call oneHand five times, log current round and result of current round
+    for (let i =0; i<5; i++){
+        console.log('Round: ' + rounds)
+        let oneHandVal = oneHand()
+        if (oneHandVal.includes('Computer Wins!')) computerWins++
+        else if(oneHandVal.includes('Player Wins!')) playerWins++
+        console.log(oneHandVal)
+        rounds++
+    }
+
+    if (playerWins === computerWins) return 'Draw!' + 'Player score: ' + playerWins + ' ' + 'Computer score: ' + computerWins
+    else if (playerWins > computerWins) return 'Player wins! ' + 'Player score: ' + playerWins + ' ' + 'Computer score: ' + computerWins
+    else if (playerWins < computerWins) return 'Computer wins! ' + 'Player score: ' + playerWins + ' ' + 'Computer score: ' + computerWins
+    else return 'Unexpected result! ' + 'Player score: ' + playerWins + ' ' + 'Computer score: ' + computerWins
+}
+
+console.log(game())
