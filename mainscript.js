@@ -17,7 +17,8 @@ function playerChoice() {
 }
 
 //Compare computer and user selection and declare winner
-function oneHand(computerHand) {
+function oneHand() {
+    computerHand = getComputerChoice()
     //Check wether it matches rock paper or scissors, if not, make user repeat input
     let newPlayerHand = playerChoice();
     const validOptions = ["rock", "paper", "scissors"];
@@ -30,7 +31,8 @@ function oneHand(computerHand) {
     if (computerHand === newPlayerHand) return 'Draw!'
 
     else if ((computerHand === 'rock' && newPlayerHand === 'scissors') ||
-             (computerHand === 'scissors' && newPlayerHand === 'paper')) return 'Computer Wins! ' + computerHand + ' beats ' + newPlayerHand
+             (computerHand === 'scissors' && newPlayerHand === 'paper') ||
+             (computerHand === 'paper' && newPlayerHand === 'rock')) return 'Computer Wins! ' + computerHand + ' beats ' + newPlayerHand
     
     else if ((computerHand === 'paper' && newPlayerHand === 'scissors') ||
              (computerHand === 'scissors' && newPlayerHand === 'rock') ||
@@ -38,4 +40,4 @@ function oneHand(computerHand) {
     else return 'Unexpected hands: ' + newPlayerHand + ' ' + computerHand
 }
 
-console.log(oneHand(getComputerChoice()))
+console.log(oneHand())
