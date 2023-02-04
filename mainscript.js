@@ -10,8 +10,6 @@ function getComputerChoice(){
     return computerChoice
 }
 
-
-
 //Compare computer and user selection and declare winner
 function oneHand(playerHand) {
     let computerHand = getComputerChoice()
@@ -31,6 +29,16 @@ function oneHand(playerHand) {
 }
 
 let rock = document.getElementById('rock')
-    rock.addEventListener('click', () =>{
-        console.log(oneHand('rock'))
-    })
+rock.addEventListener('click', () =>{
+    console.log(oneHand('rock'))
+})
+
+let paper = document.getElementById('paper')
+paper.addEventListener('click', () =>{
+    console.log(oneHand('paper'))
+})
+
+let scissors = document.getElementById('scissors')
+scissors.addEventListener('click', () =>{
+    console.log(oneHand('scissors'))
+})
