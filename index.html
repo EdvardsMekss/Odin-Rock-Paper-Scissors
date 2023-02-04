@@ -5,21 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button class="btn" id="rock">Rock</button>
-    <button class="btn" id="paper">Paper</button>
-    <button class="btn" id="scissors">Scissors</button>
-    <div class="results" id="results">
-        <h3 class="rounds-played">Rounds played</h3>
-        <p id="rounds-played"></p>
-        <h3 class="current-round">Current round</h3>
-        <p id="current-round"></p>
-        <h3 class="player-score">Player score</h3>
-        <p id="player-score"></p>
-        <h3 class="computer-score">Computer score</h3>
-        <p id="computer-score"></p>
-        
+    <div class="main-container">
+        <div class="buttons">
+            <div class="btn" id="rock"></div>
+            <div class="btn" id="paper"></div>
+            <div class="btn" id="scissors"></div>
+        </div>
+    </div>
+    <div class="score-container">
+        <div>
+            <h3 class="rounds-played">Rounds played</h3>
+            <p id="rounds-played"></p>
+        </div>
+        <div>
+            <h3 class="current-round">Current round</h3>
+            <p id="current-round"></p>
+        </div>
+        <div>
+            <h3 class="player-score">Player score</h3>
+            <p id="player-score"></p>
+        </div>
+        <div>
+            <h3 class="computer-score">Computer score</h3>
+            <p id="computer-score"></p>
+        </div>
     </div>
     <script src="/mainscript.js"></script>
 </body>
