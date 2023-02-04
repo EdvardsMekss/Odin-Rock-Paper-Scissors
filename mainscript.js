@@ -10,23 +10,13 @@ function getComputerChoice(){
     return computerChoice
 }
 
-//Take user input for rock, paper or scissors, convert to lowercase
-function playerChoice() {
-    let newPlayerHand = prompt("Enter rock, paper, or scissors:").toLowerCase();
-    return newPlayerHand;
-}
+
 
 //Compare computer and user selection and declare winner
-function oneHand() {
-    computerHand = getComputerChoice()
-    //Check wether it matches rock paper or scissors, if not, make user repeat input
-    let newPlayerHand = playerChoice();
-    const validOptions = ["rock", "paper", "scissors"];
+function oneHand(playerHand) {
+    let computerHand = getComputerChoice()
+    let newPlayerHand = playerHand
 
-    while (!validOptions.includes(newPlayerHand)) {
-        newPlayerHand = playerChoice();
-    }
-    
     //Compare user hand with computer hand and declare a winner or a draw
     if (computerHand === newPlayerHand) return 'Draw!'
 
@@ -40,26 +30,7 @@ function oneHand() {
     else return 'Unexpected hands: ' + newPlayerHand + ' ' + computerHand
 }
 
-//Play 5 rounds by calling oneHand five times and keep track of result and current round 
-function game(){
-    let rounds = 0
-    let playerWins = 0
-    let computerWins = 0
-
-    //Call oneHand five times, log current round and result of current round
-    for (let i =0; i<5; i++){
-        console.log('Round: ' + rounds)
-        let oneHandVal = oneHand()
-        if (oneHandVal.includes('Computer Wins!')) computerWins++
-        else if(oneHandVal.includes('Player Wins!')) playerWins++
-        console.log(oneHandVal)
-        rounds++
-    }
-
-    if (playerWins === computerWins) return 'Draw!' + 'Player score: ' + playerWins + ' ' + 'Computer score: ' + computerWins
-    else if (playerWins > computerWins) return 'Player wins! ' + 'Player score: ' + playerWins + ' ' + 'Computer score: ' + computerWins
-    else if (playerWins < computerWins) return 'Computer wins! ' + 'Player score: ' + playerWins + ' ' + 'Computer score: ' + computerWins
-    else return 'Unexpected result! ' + 'Player score: ' + playerWins + ' ' + 'Computer score: ' + computerWins
-}
-
-console.log(game())
+let rock = document.getElementById('rock')
+    rock.addEventListener('click', () =>{
+        console.log(oneHand('rock'))
+    })
