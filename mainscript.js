@@ -57,18 +57,34 @@ function endGame(){
     resultsDiv.style.cssText = 'height: 300px; text-align: center; padding: 50px; border: black 2px solid'
     let resultMessage = document.createElement('h3')
     resultMessage.style.color = 'white'
+    let resumeButton = document.createElement('button')
+    resumeButton.innerText = 'Play another round'
     
     if(playerScore > computerScore){
         document.body.appendChild(resultsDiv)
         resultsDiv.appendChild(resultMessage)
         resultsDiv.style.backgroundColor = 'green'
         resultMessage.innerText = 'Player Wins! Score: ' + playerScore
+        resultsDiv.appendChild(resumeButton)
+        resumeButton.addEventListener('click', () => {
+            document.body.removeChild(resultsDiv)
+            rounds = 0
+            document.getElementsByClassName('btn').disabled = false
+            gameDiv.style.display = 'block'
+        })
     }
     else {
         document.body.appendChild(resultsDiv)
         resultsDiv.appendChild(resultMessage)
         resultsDiv.style.backgroundColor = 'red'
         resultMessage.innerText = 'Computer Wins! Score: ' + computerScore
+        resultsDiv.appendChild(resumeButton)
+        resumeButton.addEventListener('click', () => {
+            document.body.removeChild(resultsDiv)
+            rounds = 0
+            document.getElementsByClassName('btn').disabled = false
+            gameDiv.style.display = 'block'
+        })
     }
 }
 
@@ -94,4 +110,3 @@ scissors.addEventListener('click', () =>{
     
 })
 
-console.log(rounds)
