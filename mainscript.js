@@ -11,40 +11,87 @@ function getComputerChoice(){
 }
 
 //Compare computer and user selection and declare winner
-function oneHand(playerHand, rounds) {
+function oneHand(playerHand) {
     let computerHand = getComputerChoice()
     let newPlayerHand = playerHand
+    let currentRound = document.getElementById('current-round')
+
+    if(rounds === 5) endGame()
 
     //Compare user hand with computer hand and declare a winner or a draw
-    if (computerHand === newPlayerHand) return 'Draw!'
+    if (computerHand === newPlayerHand) {
+        document.getElementById('rounds-played').innerText = ++rounds
+        currentRound.innerText = 'Draw!'
+        return currentRound 
+    } 
 
     else if ((computerHand === 'rock' && newPlayerHand === 'scissors') ||
              (computerHand === 'scissors' && newPlayerHand === 'paper') ||
-             (computerHand === 'paper' && newPlayerHand === 'rock')) return 'Computer Wins! ' + computerHand + ' beats ' + newPlayerHand
+             (computerHand === 'paper' && newPlayerHand === 'rock')) {
+                document.getElementById('rounds-played').innerText = ++rounds
+                document.getElementById('computer-score').innerText = ++computerScore
+                currentRound.innerText = 'Computer Wins! ' + computerHand + ' beats ' + newPlayerHand
+                return currentRound 
+            }
     
     else if ((computerHand === 'paper' && newPlayerHand === 'scissors') ||
              (computerHand === 'scissors' && newPlayerHand === 'rock') ||
-             (computerHand === 'rock' && newPlayerHand === 'paper')) return 'Player Wins! ' + newPlayerHand + ' beats ' + computerHand
-    else return 'Unexpected hands: ' + newPlayerHand + ' ' + computerHand
+             (computerHand === 'rock' && newPlayerHand === 'paper')) {
+                document.getElementById('rounds-played').innerText = ++rounds
+                document.getElementById('player-score').innerText = ++playerScore
+                currentRound.innerText = 'Player Wins! ' + newPlayerHand + ' beats ' + computerHand
+                return currentRound 
+            }  
+    else {
+        document.getElementById('rounds-played').innerText = ++rounds
+        currentRound.innerText = 'Unexpected hands: ' + newPlayerHand + ' ' + computerHand
+        return currentRound 
+    }  
+}
+
+function endGame(){
+    document.getElementsByClassName('btn').disabled = true
+    let gameDiv = document.getElementById('results')
+    gameDiv.style.display = 'none'
+    let resultsDiv = document.createElement('div')
+    resultsDiv.style.cssText = 'height: 300px; text-align: center; padding: 50px; border: black 2px solid'
+    let resultMessage = document.createElement('h3')
+    resultMessage.style.color = 'white'
+    
+    if(playerScore > computerScore){
+        document.body.appendChild(resultsDiv)
+        resultsDiv.appendChild(resultMessage)
+        resultsDiv.style.backgroundColor = 'green'
+        resultMessage.innerText = 'Player Wins! Score: ' + playerScore
+    }
+    else {
+        document.body.appendChild(resultsDiv)
+        resultsDiv.appendChild(resultMessage)
+        resultsDiv.style.backgroundColor = 'red'
+        resultMessage.innerText = 'Computer Wins! Score: ' + computerScore
+    }
 }
 
 let rounds = 0
+let playerScore = 0
+let computerScore = 0
 document.getElementById('rounds-played').innerText = rounds
 
 let rock = document.getElementById('rock')
 rock.addEventListener('click', () =>{
-    console.log(oneHand('rock'))
-    document.getElementById('rounds-played').innerText = ++rounds
+    oneHand('rock')
 })
 
 let paper = document.getElementById('paper')
 paper.addEventListener('click', () =>{
-    console.log(oneHand('paper'))
-    document.getElementById('rounds-played').innerText = ++rounds
+    oneHand('paper')
+    
 })
 
 let scissors = document.getElementById('scissors')
 scissors.addEventListener('click', () =>{
-    console.log(oneHand('scissors'))
-    document.getElementById('rounds-played').innerText = ++rounds
+    oneHand('scissors')
+    
 })
+
+console.log(rounds)
