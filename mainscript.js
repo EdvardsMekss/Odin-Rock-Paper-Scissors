@@ -11,7 +11,7 @@ function getComputerChoice(){
 }
 
 //Compare computer and user selection and declare winner
-function oneHand(playerHand) {
+function oneHand(playerHand, rounds) {
     let computerHand = getComputerChoice()
     let newPlayerHand = playerHand
 
@@ -28,17 +28,23 @@ function oneHand(playerHand) {
     else return 'Unexpected hands: ' + newPlayerHand + ' ' + computerHand
 }
 
+let rounds = 0
+document.getElementById('rounds-played').innerText = rounds
+
 let rock = document.getElementById('rock')
 rock.addEventListener('click', () =>{
     console.log(oneHand('rock'))
+    document.getElementById('rounds-played').innerText = ++rounds
 })
 
 let paper = document.getElementById('paper')
 paper.addEventListener('click', () =>{
     console.log(oneHand('paper'))
+    document.getElementById('rounds-played').innerText = ++rounds
 })
 
 let scissors = document.getElementById('scissors')
 scissors.addEventListener('click', () =>{
     console.log(oneHand('scissors'))
+    document.getElementById('rounds-played').innerText = ++rounds
 })
