@@ -75,3 +75,19 @@
     height: 75%;
     visibility: hidden;
 }
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
+button {
+    padding: 5px;
+    border: black solid 1px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 5px black;
+}
