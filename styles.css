@@ -7,7 +7,7 @@
 .main-container {
     height: 70vh;
     width: auto;
-    background-image: url(/img/rock-paper-scissors-today-tease-160317.jpg);
+    background-image: url(img/rock-paper-scissors-today-tease-160317.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -89,5 +89,4 @@ button {
     border: black solid 1px;
     background-color: white;
     border-radius: 5px;
-    box-shadow: 5px black;
 }
